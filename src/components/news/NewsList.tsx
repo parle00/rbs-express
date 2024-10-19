@@ -47,7 +47,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                 </span>
               </div>
               {ReactHtmlParser(item.express_summary as string)}
-              {item.post_type === "video" ? (
+              {/* {item.post_type === "video" ? (
                 <div className="relative w-full pb-[50%]">
                   <iframe
                     src={item.video_url}
@@ -63,7 +63,14 @@ const NewsList = ({ express }: NewsCardProps) => {
                   width={item.main_image?.width}
                   height={item.main_image?.height}
                 />
-              )}
+              )} */}
+              <Image
+                loading="lazy"
+                src={item.main_image?.url as string}
+                alt={item.title as string}
+                width={item.main_image?.width}
+                height={item.main_image?.height}
+              />
             </div>
           </div>
         );
