@@ -32,16 +32,12 @@ const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
   useEffect(() => {
     const refresInterval = setInterval(async () => {
       await refresexpressData();
-    }, 10000);
+    }, 60000);
 
     return () => {
       clearInterval(refresInterval);
     };
   }, []);
-
-  // useEffect(() => {
-  //   console.log(news);
-  // }, [news]);
 
   return <NewsList express={express} />;
 };

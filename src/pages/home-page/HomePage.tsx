@@ -24,16 +24,12 @@ const NewsPage = ({ expressData }: NewsPageProps) => {
   useEffect(() => {
     const refresInterval = setInterval(async () => {
       await refresNewsData();
-    }, 5000);
+    }, 60000);
 
     return () => {
       clearInterval(refresInterval);
     };
   }, []);
-
-  // useEffect(() => {
-  //   console.log(news);
-  // }, [news]);
 
   return <NewsList express={express} />;
 };

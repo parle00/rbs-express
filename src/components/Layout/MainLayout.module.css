@@ -3,11 +3,11 @@
 }
 
 .mainLayoutContentContainer {
-  @apply w-full  min-w-[400px] px-[20px] pt-[20px];
+  @apply w-full px-[20px] pt-[20px] md:min-w-[500px];
 }
 
 .mainLayoutContentSide {
-  @apply w-full max-w-[200px];
+  @apply w-full max-w-[200px] hidden md:block;
 }
 
 .mainLayoutLeftSideContent {

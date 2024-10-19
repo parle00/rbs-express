@@ -1,11 +1,13 @@
-import { ExpressResponse, News } from "@/models/express";
+export const runtime = "edge"; // 'nodejs' (default) | 'edge'
+
+import { ExpressResponse } from "@/models/express";
 import HomePage from "@/pages/home-page/HomePage";
-import { getExpress } from "@/services/express";
+import { getNews } from "@/services/express";
 
 const Home = async () => {
-  const response = await getExpress();
+  const expressResponse = await getNews({ cache: false });
 
-  return <HomePage expressData={response.data as ExpressResponse} />;
+  return <HomePage expressData={expressResponse.data as ExpressResponse} />;
 };
 
 export default Home;
