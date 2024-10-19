@@ -2,8 +2,10 @@ import headerStyles from "./header.module.css";
 
 const Header = () => {
   return (
-    <header className="bg-white w-full flex flex-col justify-center items-center">
-      <div className={`container ${headerStyles.headerContainer}`}>
+    <header className="w-full flex flex-col justify-center items-center border-b-[1px] border-gray-800">
+      <div
+        className={`container-with-padding ${headerStyles.headerContainer} `}
+      >
         <div>asd</div>
         <div>asd</div>
         <div>asd</div>

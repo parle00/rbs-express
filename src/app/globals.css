@@ -14,5 +14,9 @@ body {
 }
 
 .container {
-  @apply max-w-[1200px] w-full bg-black text-white px-[20px] py-[10px];
+  @apply max-w-[1200px] w-full text-white;
+}
+
+.container-with-padding {
+  @apply max-w-[1200px] w-full text-white  px-[15px] py-[10px];
 }

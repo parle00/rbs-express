@@ -19,9 +19,9 @@ const MainLayoutSide = async ({ sideType }: MainLayoutSideProps) => {
     filterData = formatedData.filters as Filter[];
 
     return (
-      <aside className={mainLayoutSideStyle.mainLayoutContentSide}>
+      <nav className={`${mainLayoutSideStyle.mainLayoutContentSide} mt-5`}>
         <MainLayoutLeftSideClient filterData={filterData} />
-      </aside>
+      </nav>
     );
   }
 

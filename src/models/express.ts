@@ -43,7 +43,7 @@ export interface Url {
   json_url?: string;
 }
 
-export interface Item {
+export interface News {
   uuid: number;
   title?: string;
   is_advertorial?: boolean;
@@ -75,6 +75,6 @@ export interface Filter {
 }
 
 export interface ExpressResponse {
-  items?: Item[];
+  items?: News[];
   filters?: Filter[];
 }

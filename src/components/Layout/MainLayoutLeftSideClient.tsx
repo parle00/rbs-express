@@ -2,6 +2,8 @@
 import { Filter } from "@/models/express";
 import Link from "next/link";
 import mainLayoutLeftSideStyle from "./MainLayout.module.css";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface MainLayoutLeftSideClientProps {
   filterData: Filter[];
@@ -10,24 +12,44 @@ interface MainLayoutLeftSideClientProps {
 const MainLayoutLeftSideClient = ({
   filterData,
 }: MainLayoutLeftSideClientProps) => {
+  const pathname = usePathname();
+
   return (
-    <ul className={mainLayoutLeftSideStyle.mainLayoutLeftSideContent}>
-      <li className={mainLayoutLeftSideStyle.active}>
-        <Link href="/">
+    <ul
+      className={`${mainLayoutLeftSideStyle.mainLayoutLeftSideContent} sticky top-[5px]`}
+    >
+      <li className={pathname === "/" ? mainLayoutLeftSideStyle.active : ""}>
+        <Link href="/" title="Akış">
           <span>Akış</span>
         </Link>
       </li>
-      {filterData.map((filterItem: Filter, index: number) => {
+      {filterData?.map((filterItem: Filter, index: number) => {
         return (
-          <li key={index}>
+          <li
+            className={`${
+              pathname !== "/"
+                ? pathname?.includes(filterItem.timeline_category as string)
+                  ? mainLayoutLeftSideStyle.active
+                  : ""
+                : ""
+            }`}
+            key={index}
+          >
             <Link
               href={`${filterItem.timeline_category}`}
               title={filterItem.timeline_category_name}
             >
               <span>
-                <img src={filterItem.icon_url} width="24px" loading="lazy" />
+                <Image
+                  src={filterItem.icon_url as string}
+                  width={24}
+                  height={24}
+                  alt={`${filterItem.timeline_category_name}-Icon`}
+                />
               </span>
-              <span>{filterItem.timeline_category_name}</span>
+              <span style={{ color: filterItem.color_dark }}>
+                {filterItem.timeline_category_name}
+              </span>
             </Link>
           </li>
         );

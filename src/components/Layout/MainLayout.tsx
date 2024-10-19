@@ -13,10 +13,12 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <React.Fragment>
       <Header />
-      <main className="bg-white w-full flex flex-col items-center p">
+      <main className="w-full flex flex-col items-center">
         <div className={`container ${mainLayoutStyle.mainLayoutContainer}`}>
           <MainLayoutSide sideType={SideEnums.LEFT} />
-          <div className={mainLayoutStyle.mainLayoutContentContainer}>
+          <div
+            className={`${mainLayoutStyle.mainLayoutContentContainer} border-r-[1px] border-l-[1px] border-gray-800`}
+          >
             {children}
           </div>
           <MainLayoutSide sideType={SideEnums.RIGHT} />

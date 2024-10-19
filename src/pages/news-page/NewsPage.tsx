@@ -6,25 +6,33 @@ import NewsList from "@/components/news/NewsList";
 
 interface NewsPageProps {
   expressData: ExpressResponse;
+  newsType: string;
 }
 
-const NewsPage = ({ expressData }: NewsPageProps) => {
+const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
   const [express, setExpress] = useState<ExpressResponse>(expressData);
 
-  const refresNewsData = useCallback(async () => {
+  const refresexpressData = useCallback(async () => {
     try {
-      const expressResponse = await getNews();
+      const news = await getNews();
 
-      if (expressResponse.status === 200) {
-        setExpress(expressResponse.data as ExpressResponse);
+      if (news.status === 200) {
+        let newsResponse = news.data as ExpressResponse;
+
+        const filteredItems = newsResponse.items?.filter(
+          (x: News) => x.timeline_category === newsType
+        ) as News[];
+
+        newsResponse = { ...newsResponse, items: filteredItems };
+        setExpress(newsResponse);
       }
     } catch (error) {}
   }, []);
 
   useEffect(() => {
     const refresInterval = setInterval(async () => {
-      await refresNewsData();
-    }, 5000);
+      await refresexpressData();
+    }, 10000);
 
     return () => {
       clearInterval(refresInterval);
