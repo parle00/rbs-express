@@ -1,0 +1,27 @@
+.mainLayoutContainer {
+  @apply flex flex-row;
+}
+
+.mainLayoutContentContainer {
+  @apply w-full  min-w-[400px] bg-white;
+}
+
+.mainLayoutContentSide {
+  @apply w-full max-w-[200px];
+}
+
+.mainLayoutLeftSideContent {
+  @apply flex flex-col;
+}
+
+.mainLayoutLeftSideContent > li {
+  @apply w-full text-end pl-[15px] py-[10px] rounded-l-[8px];
+}
+
+.mainLayoutLeftSideContent > li > a {
+  @apply flex flex-row flex-1 justify-start gap-[10px];
+}
+
+.active {
+  @apply bg-[#ffffff1a];
+}
