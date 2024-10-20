@@ -11,7 +11,7 @@ const useUpdateFile = () => {
 
   useEffect(() => {
     updateFileRequest();
-    const updeFileInterval = setInterval(updateFileRequest, 10000);
+    const updeFileInterval = setInterval(updateFileRequest, 60000);
 
     return () => {
       clearInterval(updeFileInterval);
