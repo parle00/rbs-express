@@ -1,6 +1,6 @@
-import { getStorageExpress } from "@/utils/libs";
 import { News, ExpressResponse } from "@/models/express"; // ExpressResponse modelini içe aktar
 import NewsPage from "@/pages/news-page/NewsPage";
+import { getExpress } from "@/services/express";
 
 const filterExpressDataByType = (
   data: ExpressResponse,
@@ -16,9 +16,12 @@ const filterExpressDataByType = (
 };
 
 const Page = async ({ params }: { params: { newsType: string } }) => {
-  const expressResponse = await getStorageExpress();
+  const expressResponse = await getExpress();
 
-  const expressData = filterExpressDataByType(expressResponse, params.newsType);
+  const expressData = filterExpressDataByType(
+    expressResponse.data as ExpressResponse,
+    params.newsType
+  );
 
   return <NewsPage expressData={expressData} newsType={params.newsType} />;
 };

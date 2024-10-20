@@ -1,14 +1,11 @@
 "use client";
 import { useState } from "react";
 import headerStyles from "./header.module.css";
-import useUpdateFile from "@/hooks/useUpdateFile";
 import { RiMenu3Fill } from "react-icons/ri";
 import { BsToggleOn } from "react-icons/bs";
 import { BsToggleOff } from "react-icons/bs";
 
 const Header = () => {
-  useUpdateFile();
-
   const [isDark, setIsDark] = useState<boolean>(true);
 
   return (

@@ -9,7 +9,3 @@ export const getExpress = () => {
 export const getExpressFromApi = async () => {
   return axios.get(`/api/news`);
 };
-
-export const expresDataUpdate = async () => {
-  return axios.post(`/api/news`);
-};

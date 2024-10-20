@@ -10,8 +10,6 @@ interface MainLayoutLeftSideClientProps {
   filterData: Filter[];
 }
 
-let srcIcon = "/icon.png";
-
 const MainLayoutLeftSideClient = ({
   filterData,
 }: MainLayoutLeftSideClientProps) => {
@@ -28,47 +26,51 @@ const MainLayoutLeftSideClient = ({
       </li>
       {filterData?.map((filterItem: Filter, index: number) => {
         return (
-          <InView key={index}>
-            {({ inView, ref, entry }) => {
-              if (inView) {
-                srcIcon = filterItem.icon_url as string;
-              }
-              return (
-                <li
-                  ref={ref}
-                  key={index}
-                  className={`${
-                    pathname !== "/"
-                      ? pathname?.includes(
-                          filterItem.timeline_category as string
-                        )
-                        ? mainLayoutLeftSideStyle.active
-                        : ""
-                      : ""
-                  }`}
-                >
-                  <Link
-                    href={`${filterItem.timeline_category}`}
-                    title={filterItem.timeline_category_name}
-                  >
-                    <span>
-                      <Image
+          <li
+            key={index}
+            className={`${
+              pathname !== "/"
+                ? pathname?.includes(filterItem.timeline_category as string)
+                  ? mainLayoutLeftSideStyle.active
+                  : ""
+                : ""
+            }`}
+          >
+            <Link
+              href={`${filterItem.timeline_category}`}
+              title={filterItem.timeline_category_name}
+            >
+              <InView>
+                {({ inView, ref, entry }) => {
+                  entry?.target.setAttribute(
+                    "preloadImage",
+                    filterItem.icon_url as string
+                  );
+                  if (inView) {
+                    entry?.target.children[0].setAttribute(
+                      "src",
+                      entry.target.getAttribute("preloadImage") as string
+                    );
+                  }
+                  return (
+                    <span ref={ref}>
+                      <img
                         className="rounded-[50%]"
-                        src={srcIcon}
+                        src="/icon.png"
                         width={24}
                         height={24}
                         alt={`${filterItem.timeline_category_name}-Icon`}
-                        priority={true}
                       />
                     </span>
-                    <span style={{ color: filterItem.color_dark }}>
-                      {filterItem.timeline_category_name}
-                    </span>
-                  </Link>
-                </li>
-              );
-            }}
-          </InView>
+                  );
+                }}
+              </InView>
+
+              <span style={{ color: filterItem.color_dark }}>
+                {filterItem.timeline_category_name}
+              </span>
+            </Link>
+          </li>
         );
       })}
     </ul>

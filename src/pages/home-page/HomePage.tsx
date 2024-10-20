@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import { ExpressResponse, News } from "@/models/express";
+import { ExpressResponse } from "@/models/express";
 import { getExpressFromApi } from "@/services/express";
 import NewsList from "@/components/news/NewsList";
 
