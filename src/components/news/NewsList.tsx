@@ -35,7 +35,10 @@ const NewsList = ({ express }: NewsCardProps) => {
                   className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
                   suppressHydrationWarning
                 >
-                  <div className="w-fit min-w-[48px] max-w-[48px]">
+                  <div
+                    className="w-fit min-w-[48px] max-w-[48px]"
+                    suppressHydrationWarning
+                  >
                     <Image
                       priority={true}
                       className="rounded-[50%]"
@@ -46,8 +49,14 @@ const NewsList = ({ express }: NewsCardProps) => {
                       alt={`${filter.timeline_category_name}-Icon`}
                     />
                   </div>
-                  <div className="flex flex-col gap-[10px]">
-                    <div className="flex items-center gap-[15px]">
+                  <div
+                    className="flex flex-col gap-[10px]"
+                    suppressHydrationWarning
+                  >
+                    <div
+                      className="flex items-center gap-[15px]"
+                      suppressHydrationWarning
+                    >
                       <span
                         style={{
                           color: filter.color_dark as string,
