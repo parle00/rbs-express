@@ -1,5 +1,5 @@
 .newsPageWrapper {
-  @apply flex flex-col gap-[30px];
+  @apply flex flex-col gap-[30px] pb-[15px];
 }
 
 .truncatedText {
