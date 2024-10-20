@@ -1,47 +1,15 @@
-"use client";
-import { useState } from "react";
-import headerStyles from "./header.module.css";
-import { RiMenu3Fill } from "react-icons/ri";
-import { BsToggleOn } from "react-icons/bs";
-import { BsToggleOff } from "react-icons/bs";
+import React from "react";
+import HeaderClientContent from "./HeaderClientContent";
+import { getExpress } from "@/services/express";
+import { Filter } from "@/models/express";
 
-const Header = () => {
-  const [isDark, setIsDark] = useState<boolean>(true);
+const Header = async () => {
+  const filterResponse = await getExpress();
+  let formatedData = filterResponse.data;
+  delete formatedData.items;
+  const filterData = formatedData.filters as Filter[];
 
-  return (
-    <header className="w-full flex flex-col justify-center items-center border-b-[1px] border-gray-800">
-      <div
-        className={`container-with-padding ${headerStyles.headerContainer} `}
-      >
-        <div>
-          <div className="block md:hidden">
-            <button
-              onClick={() => {
-                alert("menu opened");
-              }}
-            >
-              <RiMenu3Fill className="text-[24px]" />
-            </button>
-          </div>
-          <div className="hidden md:block">{"<---"}</div>
-        </div>
-        <div>RbsExpress</div>
-        <div>
-          <button
-            onClick={() => {
-              setIsDark(!isDark);
-            }}
-          >
-            {isDark ? (
-              <BsToggleOn className="text-[32px]" />
-            ) : (
-              <BsToggleOff className="text-[32px] text-gray-500" />
-            )}
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+  return <HeaderClientContent filterData={filterData} />;
 };
 
 export default Header;

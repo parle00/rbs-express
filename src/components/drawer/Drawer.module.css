@@ -1,0 +1,15 @@
+.drawerContent {
+  @apply flex flex-col;
+}
+
+.drawerContent > li {
+  @apply w-full text-end rounded-l-[8px];
+}
+
+.drawerContent > li > a {
+  @apply flex flex-row flex-1 justify-start gap-[10px] pl-[15px] py-[10px];
+}
+
+.active {
+  @apply bg-[#ffffff1a];
+}

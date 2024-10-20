@@ -7,6 +7,10 @@
   --foreground: #171717;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--background);
   background: var(--foreground);
@@ -18,5 +22,5 @@ body {
 }
 
 .container-with-padding {
-  @apply max-w-[1200px] w-full text-white  px-[55px] py-[25px];
+  @apply max-w-[1200px] w-full text-white  px-[20px] py-[10px];
 }
