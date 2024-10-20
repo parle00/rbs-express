@@ -1,4 +1,4 @@
-/*import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 type Environment = "production" | "development" | "other";
 
@@ -18,4 +18,4 @@ export function middleware(request: NextRequest) {
 }
 export const config = {
   matcher: "/((?!api|_next/static|_next/image|favicon.ico|none.webp).*)",
-};*/
+};
