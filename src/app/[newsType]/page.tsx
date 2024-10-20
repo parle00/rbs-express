@@ -1,13 +1,11 @@
-// export const runtime = "edge"; // 'nodejs' (default) | 'edge'
-
 import { News } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
-import { getNews } from "@/services/express";
+import { getStorageExpress } from "@/utils/libs";
 
 const Page = async ({ params }: { params: { newsType: string } }) => {
-  const expressResponse = await getNews({ cache: false });
+  const expressResponse = await getStorageExpress();
 
-  let expressData = expressResponse.data;
+  let expressData = expressResponse;
   const newItems = expressData.items.filter(
     (x: News) => x.service === params.newsType
   );

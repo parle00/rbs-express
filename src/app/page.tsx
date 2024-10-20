@@ -1,13 +1,10 @@
-// export const runtime = "edge"; // 'nodejs' (default) | 'edge'
-
-import { ExpressResponse } from "@/models/express";
 import HomePage from "@/pages/home-page/HomePage";
-import { getNews } from "@/services/express";
+import { getStorageExpress } from "@/utils/libs";
 
 const Home = async () => {
-  const expressResponse = await getNews({ cache: false });
+  const expressResponse = await getStorageExpress();
 
-  return <HomePage expressData={expressResponse.data as ExpressResponse} />;
+  return <HomePage expressData={expressResponse} />;
 };
 
 export default Home;

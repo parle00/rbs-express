@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { ExpressResponse, News } from "@/models/express";
-import { getNews } from "@/services/express";
+import { getExpressFromApi } from "@/services/express";
 import NewsList from "@/components/news/NewsList";
 
 interface NewsPageProps {
@@ -14,7 +14,7 @@ const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
 
   const refresexpressData = useCallback(async () => {
     try {
-      const news = await getNews();
+      const news = await getExpressFromApi();
 
       if (news.status === 200) {
         let newsResponse = news.data as ExpressResponse;

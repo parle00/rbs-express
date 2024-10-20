@@ -75,6 +75,6 @@ export interface Filter {
 }
 
 export interface ExpressResponse {
-  items?: News[];
-  filters?: Filter[];
+  items: News[];
+  filters: Filter[];
 }

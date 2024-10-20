@@ -6,8 +6,10 @@ export const getExpress = () => {
   return mynetAxiosİnstance.get(EXPRESS);
 };
 
-export const getNews = async ({ cache }: { cache?: any } = { cache: null }) => {
-  return axios.get(
-    `http://localhost:3000/api/news${cache !== null ? `?cache=${cache}` : ""}`
-  );
+export const getExpressFromApi = async () => {
+  return axios.get(`/api/news`);
+};
+
+export const expresDataUpdate = async () => {
+  return axios.post(`http://localhost:3000/api/news`);
 };
