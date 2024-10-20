@@ -90,7 +90,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                     );
                   }
                   return (
-                    <div ref={ref} className="w-max" suppressHydrationWarning>
+                    <div ref={ref} className="w-full" suppressHydrationWarning>
                       <img
                         className="rounded-[8px]"
                         src="/none.png"
