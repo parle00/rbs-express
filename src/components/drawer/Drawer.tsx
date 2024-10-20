@@ -31,7 +31,7 @@ const Drawer = ({ open, onClose, filterData }: DrawerProps) => {
       >
         <div className="pl-[25px] pr-[10px] flex flex-row justify-between items-center">
           <div>RbsExpress</div>
-          <button onClick={onClose}>
+          <button onClick={onClose} aria-label="close-drawer">
             <IoClose className="text-[36px]" />
           </button>
         </div>
