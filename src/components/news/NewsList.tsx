@@ -4,10 +4,14 @@ import Image from "next/image";
 import React from "react";
 import newsCardStyle from "./NewsCard.module.css";
 import { getDateDiff } from "@/utils/helpers";
+import { InView } from "react-intersection-observer";
 
 interface NewsCardProps {
   express: ExpressResponse;
 }
+
+let srcIcon = "/none.png";
+let srcImage = "/none.png";
 
 const NewsList = ({ express }: NewsCardProps) => {
   return (
@@ -18,62 +22,56 @@ const NewsList = ({ express }: NewsCardProps) => {
         ) as Filter;
 
         return (
-          <div
-            key={index}
-            className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
-            suppressHydrationWarning
-          >
-            <div className="w-fit min-w-[48px] max-w-[48px]">
-              <Image
-                src={filter.icon_url as string}
-                width={48}
-                height={48}
-                alt={`${filter.timeline_category_name}-Icon`}
-              />
-            </div>
-            <div className="flex flex-col gap-[10px]">
-              <div className="flex items-center gap-[15px]">
-                <span
-                  style={{
-                    color: filter.color_dark as string,
-                  }}
+          <InView key={index}>
+            {({ inView, ref, entry }) => {
+              if (inView) {
+                srcIcon = filter.icon_url as string;
+                srcImage = item.main_image?.url as string;
+              }
+              return (
+                <div
+                  ref={ref}
+                  className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
+                  suppressHydrationWarning
                 >
-                  {filter.timeline_category_name}
-                </span>
+                  <div className="w-fit min-w-[48px] max-w-[48px]">
+                    <Image
+                      id={`${index}-icon`}
+                      src={srcIcon}
+                      width={48}
+                      height={48}
+                      alt={`${filter.timeline_category_name}-Icon`}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-[10px]">
+                    <div className="flex items-center gap-[15px]">
+                      <span
+                        style={{
+                          color: filter.color_dark as string,
+                        }}
+                      >
+                        {filter.timeline_category_name}
+                      </span>
 
-                <span className="text-[12px] text-gray-500">
-                  {`${getDateDiff(
-                    item.meta?.update_date?.replace(" ", "T") as string
-                  )} önce`}
-                </span>
-              </div>
-              {ReactHtmlParser(item.express_summary as string)}
-              {/* {item.post_type === "video" ? (
-                <div className="relative w-full pb-[50%]">
-                  <iframe
-                    src={item.video_url}
-                    className="absolute top-0 left-0 max-w-[640px] w-full h-full border-none"
-                    allowFullScreen
-                  />
+                      <span className="text-[12px] text-gray-500">
+                        {`${getDateDiff(
+                          item.meta?.update_date?.replace(" ", "T") as string
+                        )} önce`}
+                      </span>
+                    </div>
+                    {ReactHtmlParser(item.express_summary as string)}
+                    <Image
+                      loading="lazy"
+                      src={srcImage}
+                      alt={item.title as string}
+                      width={item.main_image?.width}
+                      height={item.main_image?.height}
+                    />
+                  </div>
                 </div>
-              ) : (
-                <Image
-                  loading="lazy"
-                  src={item.main_image?.url as string}
-                  alt={item.title as string}
-                  width={item.main_image?.width}
-                  height={item.main_image?.height}
-                />
-              )} */}
-              <Image
-                loading="lazy"
-                src={item.main_image?.url as string}
-                alt={item.title as string}
-                width={item.main_image?.width}
-                height={item.main_image?.height}
-              />
-            </div>
-          </div>
+              );
+            }}
+          </InView>
         );
       })}
     </div>
@@ -81,4 +79,3 @@ const NewsList = ({ express }: NewsCardProps) => {
 };
 
 export default NewsList;
-360;
