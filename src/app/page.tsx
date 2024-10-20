@@ -1,5 +1,5 @@
-import HomePage from "@/pages/home-page/HomePage";
 import { getStorageExpress } from "@/utils/libs";
+import HomePage from "@/pages/home-page/HomePage";
 
 const Home = async () => {
   const expressResponse = await getStorageExpress();
