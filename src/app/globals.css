@@ -18,5 +18,5 @@ body {
 }
 
 .container-with-padding {
-  @apply max-w-[1200px] w-full text-white  px-[15px] py-[10px];
+  @apply max-w-[1200px] w-full text-white  px-[55px] py-[25px];
 }

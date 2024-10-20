@@ -74,6 +74,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                     {ReactHtmlParser(item.express_summary as string)}
                     <Image
                       priority={true}
+                      className="rounded-[8px]"
                       src={srcImage}
                       alt={item.title as string}
                       width={item.main_image?.width}
