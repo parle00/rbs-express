@@ -25,25 +25,21 @@ const NewsList = ({ express }: NewsCardProps) => {
             className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
             suppressHydrationWarning
           >
-            <InView>
+            {/* <InView>
               {({ inView, ref, entry }) => {
                 entry?.target.setAttribute(
                   "preloadImage",
                   filter.icon_url as string
                 );
                 if (inView) {
-                  entry?.target.children[0].setAttribute(
+                  entry?.target.setAttribute(
                     "src",
                     entry.target.getAttribute("preloadImage") as string
                   );
                 }
                 return (
-                  <div
-                    ref={ref}
-                    className="w-fit min-w-[48px] max-w-[48px]"
-                    suppressHydrationWarning
-                  >
                     <img
+                      ref={ref}
                       className="rounded-[50%]"
                       id={`${index}-icon`}
                       src="/icon.png"
@@ -51,10 +47,19 @@ const NewsList = ({ express }: NewsCardProps) => {
                       height={48}
                       alt={`${filter.timeline_category_name}-Icon`}
                     />
-                  </div>
                 );
               }}
-            </InView>
+            </InView> */}
+
+            <Image
+              priority={true}
+              className="rounded-[50%] max-h-[48px]"
+              id={`${index}-icon`}
+              src={filter.icon_url as string}
+              width={48}
+              height={48}
+              alt={`${filter.timeline_category_name}-Icon`}
+            />
 
             <div className="flex flex-col gap-[10px]" suppressHydrationWarning>
               <div
@@ -75,7 +80,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                   )} önce`}
                 </span>
               </div>
-              {ReactHtmlParser(item.express_summary as string)}
+              <div>{ReactHtmlParser(item.express_summary as string)}</div>
 
               <InView>
                 {({ inView, ref, entry }) => {
@@ -84,21 +89,20 @@ const NewsList = ({ express }: NewsCardProps) => {
                     item.main_image?.url as string
                   );
                   if (inView) {
-                    entry?.target.children[0].setAttribute(
+                    entry?.target.setAttribute(
                       "src",
                       entry.target.getAttribute("preloadImage") as string
                     );
                   }
                   return (
-                    <div ref={ref} className="w-full" suppressHydrationWarning>
-                      <img
-                        className="rounded-[8px]"
-                        src="/none.png"
-                        alt={item.title as string}
-                        width={item.main_image?.width}
-                        height={item.main_image?.height}
-                      />
-                    </div>
+                    <img
+                      ref={ref}
+                      className="rounded-[8px]"
+                      src="/none.webp"
+                      alt={item.title as string}
+                      width={item.main_image?.width}
+                      height={item.main_image?.height}
+                    />
                   );
                 }}
               </InView>

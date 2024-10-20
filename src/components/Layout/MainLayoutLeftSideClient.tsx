@@ -4,7 +4,6 @@ import Link from "next/link";
 import mainLayoutLeftSideStyle from "./MainLayout.module.css";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { InView } from "react-intersection-observer";
 
 interface MainLayoutLeftSideClientProps {
   filterData: Filter[];
@@ -40,31 +39,16 @@ const MainLayoutLeftSideClient = ({
               href={`${filterItem.timeline_category}`}
               title={filterItem.timeline_category_name}
             >
-              <InView>
-                {({ inView, ref, entry }) => {
-                  entry?.target.setAttribute(
-                    "preloadImage",
-                    filterItem.icon_url as string
-                  );
-                  if (inView) {
-                    entry?.target.children[0].setAttribute(
-                      "src",
-                      entry.target.getAttribute("preloadImage") as string
-                    );
-                  }
-                  return (
-                    <span ref={ref}>
-                      <img
-                        className="rounded-[50%]"
-                        src="/icon.png"
-                        width={24}
-                        height={24}
-                        alt={`${filterItem.timeline_category_name}-Icon`}
-                      />
-                    </span>
-                  );
-                }}
-              </InView>
+              <span>
+                <Image
+                  priority={true}
+                  className="rounded-[50%]"
+                  src={filterItem.icon_url as string}
+                  width={24}
+                  height={24}
+                  alt={`${filterItem.timeline_category_name}-Icon`}
+                />
+              </span>
 
               <span style={{ color: filterItem.color_dark }}>
                 {filterItem.timeline_category_name}
