@@ -1,3 +1,4 @@
+"use client";
 import { ExpressResponse, Filter, News } from "@/models/express";
 import ReactHtmlParser from "react-html-parser";
 import Image from "next/image";
@@ -10,7 +11,7 @@ interface NewsCardProps {
   express: ExpressResponse;
 }
 
-let srcIcon = "/none.png";
+let srcIcon = "/icon.png";
 let srcImage = "/none.png";
 
 const NewsList = ({ express }: NewsCardProps) => {
@@ -36,6 +37,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                 >
                   <div className="w-fit min-w-[48px] max-w-[48px]">
                     <Image
+                      className="rounded-[50%]"
                       id={`${index}-icon`}
                       src={srcIcon}
                       width={48}
