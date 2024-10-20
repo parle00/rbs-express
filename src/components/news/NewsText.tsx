@@ -18,7 +18,11 @@ const NewsText = ({ text }: { text: string }) => {
 
       {!isExpanded && (
         <div className="flex full justify-end">
-          <button onClick={toggleExpand} className="mt-2 text-blue-500">
+          <button
+            aria-label="devamini-oku"
+            onClick={toggleExpand}
+            className="mt-2 text-blue-500"
+          >
             {isExpanded ? "Gizle" : "Devamını Oku"}
           </button>
         </div>

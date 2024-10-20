@@ -30,8 +30,9 @@ const HeaderClientContent = ({ filterData }: { filterData: Filter[] }) => {
             />
             <div className="block md:hidden">
               <button
+                aria-label="open-drawer"
                 onClick={() => {
-                  setOpen(!open);
+                  setOpen(true);
                 }}
               >
                 <RiMenu3Fill className="text-[24px]" />
@@ -42,6 +43,7 @@ const HeaderClientContent = ({ filterData }: { filterData: Filter[] }) => {
           <div className="block md:hidden">RbsExpress</div>
           <div>
             <button
+              aria-label="toggle-mode"
               onClick={() => {
                 setIsDark(!isDark);
               }}
@@ -56,6 +58,7 @@ const HeaderClientContent = ({ filterData }: { filterData: Filter[] }) => {
         </div>
       </header>
       <button
+        aria-label="top-screen"
         className={`fixed bottom-[10px] transition-all duration-[150ms] ${
           !open && scrollY > 300 ? "right-[10px]" : "right-[-150%]"
         }`}
