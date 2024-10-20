@@ -12,11 +12,10 @@ export function middleware(request: NextRequest) {
       `https://${request.headers.get("host")}${request.nextUrl.pathname}${
         request?.nextUrl?.search || ""
       }`,
-      301,
+      301
     );
   }
 }
-
 export const config = {
-  matcher: ["/*"],
+  matcher: "/((?!api|_next/static|_next/image|favicon.ico|none.webp).*)",
 };
