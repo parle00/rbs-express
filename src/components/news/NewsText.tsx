@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import newsCardStyle from "./NewsCard.module.css";
