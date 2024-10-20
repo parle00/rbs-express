@@ -1,4 +1,4 @@
-export const runtime = "edge"; // 'nodejs' (default) | 'edge'
+// export const runtime = "edge"; // 'nodejs' (default) | 'edge'
 
 import { News } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
