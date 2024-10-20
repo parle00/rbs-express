@@ -26,9 +26,7 @@ const MainLayoutSide = async ({ sideType }: MainLayoutSideProps) => {
   }
 
   if (sideType === SideEnums.RIGHT) {
-    return (
-      <aside className={mainLayoutSideStyle.mainLayoutContentSide}></aside>
-    );
+    return <nav className={mainLayoutSideStyle.mainLayoutContentSide}></nav>;
   }
 };
 

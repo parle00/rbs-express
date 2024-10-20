@@ -23,10 +23,7 @@ const NewsList = ({ express }: NewsCardProps) => {
             className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
             suppressHydrationWarning
           >
-            <div
-              className="w-fit min-w-[48px] max-w-[48px]"
-              suppressHydrationWarning
-            >
+            <div className="w-fit min-w-[48px] max-w-[48px]">
               <Image
                 src={filter.icon_url as string}
                 width={48}
@@ -34,24 +31,17 @@ const NewsList = ({ express }: NewsCardProps) => {
                 alt={`${filter.timeline_category_name}-Icon`}
               />
             </div>
-            <div className="flex flex-col gap-[10px]" suppressHydrationWarning>
-              <div
-                className="flex items-center gap-[15px]"
-                suppressHydrationWarning
-              >
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex items-center gap-[15px]">
                 <span
                   style={{
                     color: filter.color_dark as string,
                   }}
-                  suppressHydrationWarning
                 >
                   {filter.timeline_category_name}
                 </span>
 
-                <span
-                  className="text-[12px] text-gray-500"
-                  suppressHydrationWarning
-                >
+                <span className="text-[12px] text-gray-500">
                   {`${getDateDiff(
                     item.meta?.update_date?.replace(" ", "T") as string
                   )} önce`}

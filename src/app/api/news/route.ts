@@ -36,5 +36,5 @@ export async function POST() {
 
   fs.writeFileSync(filePath, JSON.stringify(responseData, null, 2), "utf8");
 
-  return new Response(null, { status: 204 });
+  return NextResponse.json(null, { status: 200 });
 }
