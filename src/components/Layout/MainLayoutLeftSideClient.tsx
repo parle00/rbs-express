@@ -26,6 +26,7 @@ const MainLayoutLeftSideClient = ({
       {filterData?.map((filterItem: Filter, index: number) => {
         return (
           <li
+            key={index}
             className={`${
               pathname !== "/"
                 ? pathname?.includes(filterItem.timeline_category as string)
@@ -33,7 +34,6 @@ const MainLayoutLeftSideClient = ({
                   : ""
                 : ""
             }`}
-            key={index}
           >
             <Link
               href={`${filterItem.timeline_category}`}
