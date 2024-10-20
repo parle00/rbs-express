@@ -23,7 +23,7 @@ const NewsList = ({ express }: NewsCardProps) => {
         ) as Filter;
 
         return (
-          <InView key={index}>
+          <InView key={index} suppressHydrationWarning>
             {({ inView, ref, entry }) => {
               if (inView) {
                 srcIcon = filter.icon_url as string;
@@ -37,6 +37,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                 >
                   <div className="w-fit min-w-[48px] max-w-[48px]">
                     <Image
+                      priority={true}
                       className="rounded-[50%]"
                       id={`${index}-icon`}
                       src={srcIcon}
@@ -63,7 +64,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                     </div>
                     {ReactHtmlParser(item.express_summary as string)}
                     <Image
-                      loading="lazy"
+                      priority={true}
                       src={srcImage}
                       alt={item.title as string}
                       width={item.main_image?.width}
