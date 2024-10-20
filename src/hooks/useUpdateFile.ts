@@ -2,10 +2,10 @@
 import { expresDataUpdate } from "@/services/express";
 import { useCallback, useEffect } from "react";
 
-const updateFile = () => {
+const useUpdateFile = () => {
   const updateFileRequest = useCallback(async () => {
     try {
-      await expresDataUpdate();
+      expresDataUpdate();
     } catch (error) {}
   }, []);
 
@@ -19,4 +19,4 @@ const updateFile = () => {
   }, []);
 };
 
-export default updateFile;
+export default useUpdateFile;

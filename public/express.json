@@ -2,7 +2,7 @@
   "items": [
     {
       "uuid": 491110,
-      "title": "Yenidoğan skandalı! SGK başuzmanı 'Bağ-Kur' detayına dikkat çekti",
+      "title": "Yenidoğan skandalı | SGK başuzmanı 'Bağ-Kur' detayına dikkat çekti",
       "is_advertorial": false,
       "summary": "Türkiye'nin gündemine oturan yenidoğan çetesi skandalı tüm boyutuyla inceleniyor. Sosyal Güvenlik Başuzmanı İsa Karakaş da 'Bağ-Kur' detayına dikkat çekti. Karakaş, ‘Yenidoğan Çetesi'nin birçok özel hastaneyle anlaştığına dair soruşturmaya ilişkin, “Özel hastanelerdeki doktorların BAĞ-KUR'lu olması yolsuzlukların oluşmasına neden olduğu göz önünde bulundurulmalı” dedi.",
       "express_summary": "<p>Sosyal Güvenlik Başuzmanı İsa Karakaş, ‘Yenidoğan Çetesi'nin birçok özel hastaneyle anlaştığına dair soruşturmaya ilişkin, “Özel hastanelerdeki doktorların BAĞ-KUR'lu olması yolsuzlukların oluşmasına neden olduğu göz önünde bulundurulmalı” dedi.</p>",
@@ -11,8 +11,8 @@
       "timeline_category_name": "Finans",
       "category_name": "Ekonomi",
       "category_id": "ekonomi",
-      "post_type": "video",
-      "type": "video",
+      "post_type": "post",
+      "type": "story",
       "main_image": {
         "url": "https://imgrosetta.mynet.com.tr/file/19188925/19188925-640x360.jpg",
         "width": 640,
@@ -29,12 +29,12 @@
         "share_url": "https://finans.mynet.com/haber/detay/ekonomi/yenidogan-skandalinda-sgk-basuzmani-bag-kur-detayina-dikkat-cekti-ozel-hastanelerde-en-onemli-sorunlardan-biri/491110/",
         "json_url": "https://finans.mynet.com/json-api/post/491110"
       },
-      "video_url": "https://www.mynet.com/tv/embed/8232679?volume=0",
+      "video_url": "",
       "style": {
         "category_color": "#244281"
       },
       "meta": {
-        "update_date": "2024-10-20 15:03:46",
+        "update_date": "2024-10-20 14:32:53",
         "publish_date": "2024-10-20 14:27:29",
         "show_date": true,
         "publisher": "Hande Dağ",
@@ -47,26 +47,12 @@
         "width": 640,
         "height": 320
       },
-      "video_info": {
-        "id": 8232679,
-        "title": " Özel hastanelerdeki doktorların BAĞ-KUR'lu olması yolsuzluklara neden olabiliyor",
-        "url": "https://www.mynet.com/ozel-hastanelerdeki-doktorlarin-bag-kurlu-olmasi-yolsuzluklara-neden-olabiliyor-8232679-myvideo",
-        "view_count": 0,
-        "player_thumb": "https://imgmyntv.mynet.com/images/8232679/687474703a2f2f7669333263646e2e6d796e65742e636f6d2f766964656f2f3132392f3137392f383233323637392f312e6a70673f76657273696f6e3d323032342d31302d32302031343a35393a3032/640x360.jpg",
-        "unformated_duration": 334,
-        "mobile_video_uri": "http://vi32.mynet.com/video/129/179/8232679/8232679.mp4",
-        "auto_play_video": false,
-        "publisher_id": null,
-        "video_category": "Eğitim",
-        "video_category_id": 28,
-        "video_channel_name": "Kanal Finans",
-        "video_channel_id": 401,
-        "video_publisher_name": "Diğer",
-        "created_at": "2024-10-20 14:56:48"
-      },
+      "video_info": null,
       "reactions": {
-        "4": 1,
-        "5": 3
+        "2": 1,
+        "3": 0,
+        "4": 3,
+        "5": 6
       }
     },
     {
@@ -118,9 +104,9 @@
       },
       "video_info": null,
       "reactions": {
-        "2": 6,
-        "3": 65,
-        "4": 13,
+        "2": 7,
+        "3": 67,
+        "4": 14,
         "6": 3,
         "7": 3
       }
@@ -245,12 +231,13 @@
       },
       "reactions": {
         "1": 5,
+        "2": 1,
         "3": 10,
         "4": 1,
-        "5": 61,
+        "5": 64,
         "6": 11,
         "7": 12,
-        "8": 39
+        "8": 41
       }
     },
     {
@@ -306,7 +293,7 @@
         "2": 3,
         "3": 108,
         "4": 6,
-        "5": 67,
+        "5": 68,
         "6": 10,
         "7": 2,
         "8": 27
@@ -362,9 +349,9 @@
       "video_info": null,
       "reactions": {
         "1": 2,
-        "2": 17,
-        "3": 158,
-        "4": 39,
+        "2": 18,
+        "3": 160,
+        "4": 40,
         "5": 1,
         "6": 10,
         "7": 2
@@ -421,11 +408,11 @@
       "reactions": {
         "1": 14,
         "2": 1,
-        "3": 31,
-        "5": 187,
-        "6": 39,
-        "7": 35,
-        "8": 105
+        "3": 32,
+        "5": 189,
+        "6": 40,
+        "7": 37,
+        "8": 107
       }
     },
     {
@@ -3197,7 +3184,7 @@
       "video_info": null,
       "reactions": {
         "1": 5,
-        "2": 320,
+        "2": 321,
         "3": 30,
         "4": 25,
         "5": 9,
@@ -3500,7 +3487,7 @@
       "reactions": {
         "1": 4,
         "2": 55,
-        "3": 1096,
+        "3": 1097,
         "4": 255,
         "5": 39,
         "6": 240,

@@ -12,7 +12,7 @@ export async function GET() {
   const res = await getStorageExpress();
   const newEtag = JSON.stringify(res).length.toString(); // Örnek etag oluşturma
   if (cachedResponse && cachedResponse.etag === newEtag) {
-    return new Response(null, { status: 304 });
+    return new Response(null, { status: 204 });
   }
   cachedResponse = { data: res, etag: newEtag };
   return NextResponse.json(res, { status: 200 });
@@ -26,7 +26,7 @@ export async function POST() {
 
   // Eğer veriler zaten güncelse 304 ve bir mesaj dön
   if (cachedResponse && cachedResponse.etag === newEtag) {
-    return new Response(null, { status: 304 });
+    return new Response(null, { status: 204 });
   }
 
   // ETag değiştiyse, yeni verileri cache'le ve dosyaya yaz
@@ -36,8 +36,5 @@ export async function POST() {
 
   fs.writeFileSync(filePath, JSON.stringify(responseData, null, 2), "utf8");
 
-  return NextResponse.json(
-    { message: "File updated successfully" },
-    { status: 200 }
-  );
+  return new Response(null, { status: 204 });
 }
