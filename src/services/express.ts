@@ -11,5 +11,5 @@ export const getExpressFromApi = async () => {
 };
 
 export const expresDataUpdate = async () => {
-  return axios.post(`http://localhost:3000/api/news`);
+  return axios.post(`/api/news`);
 };
