@@ -5,7 +5,7 @@ import { useCallback, useEffect } from "react";
 const useUpdateFile = () => {
   const updateFileRequest = useCallback(async () => {
     try {
-      expresDataUpdate();
+      await expresDataUpdate();
     } catch (error) {}
   }, []);
 
