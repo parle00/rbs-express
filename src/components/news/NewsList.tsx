@@ -22,7 +22,7 @@ const NewsList = ({ express }: NewsCardProps) => {
         return (
           <div
             key={index}
-            className="[&_p]:max-w-[640px] flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
+            className="flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
             suppressHydrationWarning
           >
             {/* <InView>
@@ -80,8 +80,9 @@ const NewsList = ({ express }: NewsCardProps) => {
                   )} önce`}
                 </span>
               </div>
-              <div>{ReactHtmlParser(item.express_summary as string)}</div>
-
+              <div className="max-w-[640px]">
+                {ReactHtmlParser(item.express_summary as string)}
+              </div>
               <InView>
                 {({ inView, ref, entry }) => {
                   entry?.target.setAttribute(

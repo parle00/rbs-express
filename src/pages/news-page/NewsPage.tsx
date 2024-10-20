@@ -6,7 +6,7 @@ import NewsList from "@/components/news/NewsList";
 
 interface NewsPageProps {
   expressData: ExpressResponse;
-  newsType: string;
+  newsType?: string;
 }
 
 const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
@@ -15,16 +15,18 @@ const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
   const refresexpressData = useCallback(async () => {
     try {
       const news = await getExpressFromApi();
-
+      let newsResponse = news.data as ExpressResponse;
       if (news.status === 200) {
-        let newsResponse = news.data as ExpressResponse;
+        if (newsType !== "") {
+          const filteredItems = newsResponse.items?.filter(
+            (x: News) => x.timeline_category === newsType
+          ) as News[];
 
-        const filteredItems = newsResponse.items?.filter(
-          (x: News) => x.timeline_category === newsType
-        ) as News[];
-
-        newsResponse = { ...newsResponse, items: filteredItems };
-        setExpress(newsResponse);
+          newsResponse = { ...newsResponse, items: filteredItems };
+          setExpress(newsResponse);
+        } else {
+          setExpress(newsResponse);
+        }
       }
     } catch (error) {}
   }, []);

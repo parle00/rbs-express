@@ -3,7 +3,7 @@
 }
 
 .mainLayoutContentContainer {
-  @apply w-full px-[20px] pt-[20px] md:min-w-[500px];
+  @apply w-full px-[20px] pt-[20px] max-w-[800px] md:min-w-[500px];
 }
 
 .mainLayoutContentSide {

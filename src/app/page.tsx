@@ -1,11 +1,11 @@
-import HomePage from "@/pages/home-page/HomePage";
 import { getExpress } from "@/services/express";
 import { ExpressResponse } from "@/models/express";
+import NewsPage from "@/pages/news-page/NewsPage";
 
 const Home = async () => {
   const expressResponse = await getExpress();
 
-  return <HomePage expressData={expressResponse.data as ExpressResponse} />;
+  return <NewsPage expressData={expressResponse.data as ExpressResponse} />;
 };
 
 export default Home;

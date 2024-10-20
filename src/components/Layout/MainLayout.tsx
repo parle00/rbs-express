@@ -17,7 +17,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         <div className={`container ${mainLayoutStyle.mainLayoutContainer}`}>
           <MainLayoutSide sideType={SideEnums.LEFT} />
           <div
-            className={`${mainLayoutStyle.mainLayoutContentContainer} border-r-[1px] border-l-[1px] border-gray-800`}
+            className={`${mainLayoutStyle.mainLayoutContentContainer} border-r-[0px] border-l-[0px] border-gray-800 md:border-l-[1px] md:border-r-[1px]`}
           >
             {children}
           </div>
