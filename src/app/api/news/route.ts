@@ -1,9 +1,8 @@
 import { getExpress } from "@/services/express";
 import { NextResponse } from "next/server";
-import { ExpressResponse } from "@/models/express";
 
-let cachedResponse: { data: ExpressResponse; etag: string | undefined } | null =
-  null;
+// let cachedResponse: { data: ExpressResponse; etag: string | undefined } | null =
+//   null;
 
 export async function GET() {
   const res = await getExpress();
