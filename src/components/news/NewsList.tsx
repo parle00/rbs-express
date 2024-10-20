@@ -1,11 +1,11 @@
 "use client";
 import { ExpressResponse, Filter, News } from "@/models/express";
-import ReactHtmlParser from "react-html-parser";
 import Image from "next/image";
 import React from "react";
 import newsCardStyle from "./NewsCard.module.css";
 import { getDateDiff } from "@/utils/helpers";
 import { InView } from "react-intersection-observer";
+import NewsText from "./NewsText";
 
 interface NewsCardProps {
   express: ExpressResponse;
@@ -25,32 +25,6 @@ const NewsList = ({ express }: NewsCardProps) => {
             className="flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
             suppressHydrationWarning
           >
-            {/* <InView>
-              {({ inView, ref, entry }) => {
-                entry?.target.setAttribute(
-                  "preloadImage",
-                  filter.icon_url as string
-                );
-                if (inView) {
-                  entry?.target.setAttribute(
-                    "src",
-                    entry.target.getAttribute("preloadImage") as string
-                  );
-                }
-                return (
-                    <img
-                      ref={ref}
-                      className="rounded-[50%]"
-                      id={`${index}-icon`}
-                      src="/icon.png"
-                      width={48}
-                      height={48}
-                      alt={`${filter.timeline_category_name}-Icon`}
-                    />
-                );
-              }}
-            </InView> */}
-
             <Image
               priority={true}
               className="rounded-[50%] max-h-[48px]"
@@ -80,9 +54,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                   )} önce`}
                 </span>
               </div>
-              <div className="max-w-[640px]">
-                {ReactHtmlParser(item.express_summary as string)}
-              </div>
+              <NewsText text={item.express_summary as string} />
               <InView>
                 {({ inView, ref, entry }) => {
                   entry?.target.setAttribute(

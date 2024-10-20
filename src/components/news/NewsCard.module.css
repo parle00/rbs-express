@@ -1,3 +1,11 @@
 .newsPageWrapper {
   @apply flex flex-col gap-[30px];
 }
+
+.truncatedText {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Kaç satır göstereceğinizi belirleyin */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
