@@ -38,6 +38,11 @@ const Drawer = ({ open, onClose, filterData }: DrawerProps) => {
         <div className="w-full h-[1px] bg-gray-800 my-[20px]" />
         <div className="pl-[15px]">
           <ul className={`${drawerStyle.drawerContent} gap-[15px]`}>
+            <li className={pathname === "/" ? drawerStyle.active : ""}>
+              <Link onClick={onClose} href="/" title="Akış">
+                Akış
+              </Link>
+            </li>
             {filterData?.map((filterItem: Filter, index: number) => {
               return (
                 <li

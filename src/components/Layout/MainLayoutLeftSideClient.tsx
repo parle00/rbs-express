@@ -18,6 +18,11 @@ const MainLayoutLeftSideClient = ({
     <ul
       className={`${mainLayoutLeftSideStyle.mainLayoutLeftSideContent} sticky top-[5px]`}
     >
+      <li className={pathname === "/" ? mainLayoutLeftSideStyle.active : ""}>
+        <Link href="/" title="Akış">
+          Akış
+        </Link>
+      </li>
       {filterData?.map((filterItem: Filter, index: number) => {
         return (
           <li
