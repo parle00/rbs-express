@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { ExpressResponse } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
 import { getExpress } from "@/services/express";

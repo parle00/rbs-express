@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = "force-dynamic";
+
 import { useCallback, useEffect, useState } from "react";
 import { ExpressResponse, News } from "@/models/express";
 import { getExpressFromApi } from "@/services/express";
@@ -9,7 +11,7 @@ interface NewsPageProps {
   newsType?: string;
 }
 
-const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
+const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
   const [express, setExpress] = useState<ExpressResponse>(expressData);
 
   const refresexpressData = useCallback(async () => {
@@ -34,7 +36,7 @@ const NewsPage = ({ expressData, newsType }: NewsPageProps) => {
   useEffect(() => {
     const refresInterval = setInterval(async () => {
       await refresexpressData();
-    }, 30000);
+    }, 3000);
 
     return () => {
       clearInterval(refresInterval);

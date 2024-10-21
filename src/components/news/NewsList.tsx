@@ -14,7 +14,7 @@ interface NewsCardProps {
 const NewsList = ({ express }: NewsCardProps) => {
   return (
     <div className={newsCardStyle.newsPageWrapper} suppressHydrationWarning>
-      {express?.items?.map((item: News, index: number) => {
+      {express.items.map((item: News, index: number) => {
         const filter = express.filters?.find(
           (x) => x.timeline_category === item.service
         ) as Filter;
@@ -48,7 +48,10 @@ const NewsList = ({ express }: NewsCardProps) => {
                   {filter.timeline_category_name}
                 </span>
 
-                <span className="text-[12px] text-gray-500">
+                <span
+                  className="text-[12px] text-gray-500"
+                  suppressHydrationWarning
+                >
                   {`${getDateDiff(
                     item.meta?.update_date?.replace(" ", "T") as string
                   )} önce`}
