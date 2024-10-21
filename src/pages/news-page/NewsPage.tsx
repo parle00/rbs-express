@@ -36,7 +36,7 @@ const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
   useEffect(() => {
     const refresInterval = setInterval(async () => {
       await refresexpressData();
-    }, 3000);
+    }, 30000);
 
     return () => {
       clearInterval(refresInterval);

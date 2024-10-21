@@ -14,7 +14,7 @@ interface NewsCardProps {
 const NewsList = ({ express }: NewsCardProps) => {
   return (
     <div className={newsCardStyle.newsPageWrapper} suppressHydrationWarning>
-      {express.items.map((item: News, index: number) => {
+      {express?.items?.map((item: News, index: number) => {
         const filter = express.filters?.find(
           (x) => x.timeline_category === item.service
         ) as Filter;
