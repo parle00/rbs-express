@@ -13,7 +13,7 @@ interface NewsCardProps {
 
 const NewsList = ({ express }: NewsCardProps) => {
   return (
-    <div className={newsCardStyle.newsPageWrapper} suppressHydrationWarning>
+    <div className={newsCardStyle.newsPageWrapper}>
       {express?.items?.map((item: News, index: number) => {
         const filter = express.filters?.find(
           (x) => x.timeline_category === item.service
@@ -23,7 +23,6 @@ const NewsList = ({ express }: NewsCardProps) => {
           <div
             key={index}
             className="flex flex-row gap-[10px] border-b-[1px] border-gray-800 pb-[30px]"
-            suppressHydrationWarning
           >
             <Image
               priority={true}
@@ -35,11 +34,8 @@ const NewsList = ({ express }: NewsCardProps) => {
               alt={`${filter.timeline_category_name}-Icon`}
             />
 
-            <div className="flex flex-col gap-[10px]" suppressHydrationWarning>
-              <div
-                className="flex items-center gap-[15px]"
-                suppressHydrationWarning
-              >
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex items-center gap-[15px]">
                 <span
                   style={{
                     color: filter.color_dark as string,

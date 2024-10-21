@@ -1,6 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
-
 import { useCallback, useEffect, useState } from "react";
 import { ExpressResponse, News } from "@/models/express";
 import { getExpressFromApi } from "@/services/express";
