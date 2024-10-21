@@ -44,10 +44,7 @@ const NewsList = ({ express }: NewsCardProps) => {
                   {filter.timeline_category_name}
                 </span>
 
-                <span
-                  className="text-[12px] text-gray-500"
-                  suppressHydrationWarning
-                >
+                <span className="text-[12px] text-gray-500">
                   {`${getDateDiff(
                     item.meta?.update_date?.replace(" ", "T") as string
                   )} önce`}
