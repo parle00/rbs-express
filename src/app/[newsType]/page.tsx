@@ -1,4 +1,6 @@
-import { News, ExpressResponse } from "@/models/express"; // ExpressResponse modelini içe aktar
+export const dynamic = "force-dynamic";
+
+import { News, ExpressResponse } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
 import { getExpress } from "@/services/express";
 

@@ -6,10 +6,5 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const res = await getExpress();
-  // const newEtag = JSON.stringify(res).length.toString(); // Örnek etag oluşturma
-  // if (cachedResponse && cachedResponse.etag === newEtag) {
-  //   return new Response(null, { status: 204 });
-  // }
-  // cachedResponse = { data: res, etag: newEtag };
   return NextResponse.json(res.data, { status: 200 });
 }
