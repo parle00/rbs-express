@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getExpress } from "@/services/express";
 import { NextResponse } from "next/server";
 
