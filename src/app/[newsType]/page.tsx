@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 import { News, ExpressResponse } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
@@ -6,10 +6,10 @@ import { getExpress } from "@/services/express";
 
 const filterExpressDataByType = (
   data: ExpressResponse,
-  newsType: string
+  newsType: string,
 ): ExpressResponse => {
   const filteredItems = data.items.filter(
-    (item: News) => item.service === newsType
+    (item: News) => item.service === newsType,
   );
   return {
     ...data,
@@ -22,7 +22,7 @@ const Page = async ({ params }: { params: { newsType: string } }) => {
 
   const expressData = filterExpressDataByType(
     expressResponse.data as ExpressResponse,
-    params.newsType
+    params.newsType,
   );
 
   return <NewsPage expressData={expressData} newsType={params.newsType} />;

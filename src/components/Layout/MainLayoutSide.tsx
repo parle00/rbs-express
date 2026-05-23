@@ -6,17 +6,25 @@ import { getExpress } from "@/services/express";
 import MainLayoutLeftSideClient from "./MainLayoutLeftSideClient";
 
 interface MainLayoutSideProps {
-  sideType: SideEnums; // veya string, eğer farklı bir türse
+  sideType: SideEnums;
 }
 
 const MainLayoutSide = async ({ sideType }: MainLayoutSideProps) => {
-  let filterData: Filter[];
-
   if (sideType === SideEnums.LEFT) {
-    const filterResponse = await getExpress();
-    let formatedData = filterResponse.data;
-    delete formatedData.items;
-    filterData = formatedData.filters as Filter[];
+    let filterData: Filter[] = [];
+
+    try {
+      const filterResponse = await getExpress();
+
+      const formattedData = filterResponse.data;
+
+      filterData = (formattedData.filters ?? []) as Filter[];
+    } catch (error) {
+      console.error(
+        "Main layout left side filters could not be loaded:",
+        error,
+      );
+    }
 
     return (
       <nav className={`${mainLayoutSideStyle.mainLayoutContentSide} mt-5`}>
@@ -28,6 +36,8 @@ const MainLayoutSide = async ({ sideType }: MainLayoutSideProps) => {
   if (sideType === SideEnums.RIGHT) {
     return <nav className={mainLayoutSideStyle.mainLayoutContentSide}></nav>;
   }
+
+  return null;
 };
 
 export default MainLayoutSide;

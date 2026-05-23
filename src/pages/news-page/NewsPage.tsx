@@ -1,8 +1,8 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { ExpressResponse, News } from "@/models/express";
-import { getExpressFromApi } from "@/services/express";
 import NewsList from "@/components/news/NewsList";
+import { refresexpressDataAction } from "@/app/action";
 
 interface NewsPageProps {
   expressData: ExpressResponse;
@@ -14,32 +14,36 @@ const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
 
   const refresexpressData = useCallback(async () => {
     try {
-      const news = await getExpressFromApi();
-      let newsResponse = news.data as ExpressResponse;
-      if (news.status === 200) {
-        if (newsType !== "") {
-          const filteredItems = newsResponse.items?.filter(
-            (x: News) => x.timeline_category === newsType
-          ) as News[];
+      const res = await refresexpressDataAction();
 
-          newsResponse = { ...newsResponse, items: filteredItems };
-          setExpress(newsResponse);
-        } else {
-          setExpress(newsResponse);
-        }
+      if (!res) return;
+
+      let newsResponse = res as ExpressResponse;
+
+      if (newsType !== "") {
+        const filteredItems = newsResponse.items?.filter(
+          (x: News) => x.timeline_category === newsType,
+        ) as News[];
+
+        newsResponse = { ...newsResponse, items: filteredItems };
+        setExpress(newsResponse);
+      } else {
+        setExpress(newsResponse);
       }
-    } catch (error) {}
-  }, []);
+    } catch (error) {
+      console.error("Express news refresh failed:", error);
+    }
+  }, [newsType]);
 
   useEffect(() => {
-    const refresInterval = setInterval(async () => {
-      await refresexpressData();
-    }, 30000);
+    const refreshInterval = setInterval(() => {
+      void refresexpressData();
+    }, 60 * 1000);
 
     return () => {
-      clearInterval(refresInterval);
+      clearInterval(refreshInterval);
     };
-  }, []);
+  }, [refresexpressData]);
 
   return <NewsList express={express} />;
 };

@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 import { ExpressResponse } from "@/models/express";
 import NewsPage from "@/pages/news-page/NewsPage";
@@ -7,6 +7,7 @@ import React from "react";
 
 const Page = async () => {
   const expressData = await getExpress();
+
   return <NewsPage expressData={expressData.data as ExpressResponse} />;
 };
 
