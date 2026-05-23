@@ -1,5 +1,10 @@
 export const getDateDiff = (date: string, referenceTime: number) => {
-  const givenTime: Date = new Date(date);
+  const normalizedDate = date.replace(" ", "T");
+  const hasTimeZone = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(normalizedDate);
+  // Mynet dates are Turkey-local timestamps without an explicit offset.
+  const givenTime: Date = new Date(
+    hasTimeZone ? normalizedDate : `${normalizedDate}+03:00`,
+  );
   // Use the serialized render time so server HTML and hydration match.
   const now: Date = new Date(referenceTime);
 
