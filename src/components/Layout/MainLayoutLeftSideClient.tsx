@@ -41,7 +41,6 @@ const MainLayoutLeftSideClient = ({
             >
               <span>
                 <Image
-                  priority={true}
                   className="rounded-[50%]"
                   src={filterItem.icon_url as string}
                   width={24}

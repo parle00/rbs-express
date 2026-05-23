@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import MainLayout from "@/components/Layout/MainLayout";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "RbsExpress",
@@ -27,9 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr-TR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

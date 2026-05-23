@@ -64,7 +64,6 @@ const Drawer = ({ open, onClose, filterData }: DrawerProps) => {
                   >
                     <span>
                       <Image
-                        priority={true}
                         className="rounded-[50%]"
                         src={filterItem.icon_url as string}
                         width={24}
