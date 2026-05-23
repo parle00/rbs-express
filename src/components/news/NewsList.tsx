@@ -9,9 +9,10 @@ import NewsText from "./NewsText";
 
 interface NewsCardProps {
   express: ExpressResponse;
+  referenceTime: number;
 }
 
-const NewsList = ({ express }: NewsCardProps) => {
+const NewsList = ({ express, referenceTime }: NewsCardProps) => {
   return (
     <div className={newsCardStyle.newsPageWrapper}>
       {express?.items?.map((item: News, index: number) => {
@@ -46,7 +47,8 @@ const NewsList = ({ express }: NewsCardProps) => {
 
                 <span className="text-[12px] text-gray-500">
                   {`${getDateDiff(
-                    item.meta?.update_date?.replace(" ", "T") as string
+                    item.meta?.update_date?.replace(" ", "T") as string,
+                    referenceTime,
                   )} önce`}
                 </span>
               </div>

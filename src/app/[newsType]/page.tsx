@@ -25,7 +25,13 @@ const Page = async ({ params }: { params: { newsType: string } }) => {
     params.newsType,
   );
 
-  return <NewsPage expressData={expressData} newsType={params.newsType} />;
+  return (
+    <NewsPage
+      expressData={expressData}
+      newsType={params.newsType}
+      initialReferenceTime={Date.now()}
+    />
+  );
 };
 
 export default Page;

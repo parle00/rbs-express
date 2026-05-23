@@ -7,10 +7,16 @@ import { refresexpressDataAction } from "@/app/action";
 interface NewsPageProps {
   expressData: ExpressResponse;
   newsType?: string;
+  initialReferenceTime: number;
 }
 
-const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
+const NewsPage = ({
+  expressData,
+  newsType = "",
+  initialReferenceTime,
+}: NewsPageProps) => {
   const [express, setExpress] = useState<ExpressResponse>(expressData);
+  const [referenceTime, setReferenceTime] = useState(initialReferenceTime);
 
   const refresexpressData = useCallback(async () => {
     try {
@@ -19,6 +25,7 @@ const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
       if (!res) return;
 
       let newsResponse = res as ExpressResponse;
+      setReferenceTime(Date.now());
 
       if (newsType !== "") {
         const filteredItems = newsResponse.items?.filter(
@@ -36,6 +43,8 @@ const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
   }, [newsType]);
 
   useEffect(() => {
+    setReferenceTime(Date.now());
+
     const refreshInterval = setInterval(() => {
       void refresexpressData();
     }, 60 * 1000);
@@ -45,7 +54,7 @@ const NewsPage = ({ expressData, newsType = "" }: NewsPageProps) => {
     };
   }, [refresexpressData]);
 
-  return <NewsList express={express} />;
+  return <NewsList express={express} referenceTime={referenceTime} />;
 };
 
 export default NewsPage;

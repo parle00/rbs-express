@@ -1,7 +1,7 @@
-export const getDateDiff = (date: string) => {
+export const getDateDiff = (date: string, referenceTime: number) => {
   const givenTime: Date = new Date(date);
-  // Şu anki zaman
-  const now: Date = new Date();
+  // Use the serialized render time so server HTML and hydration match.
+  const now: Date = new Date(referenceTime);
 
   // Zaman farkını milisaniye cinsinden hesapla
   const timeDifference: number = now.getTime() - givenTime.getTime();
