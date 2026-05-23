@@ -62,7 +62,7 @@ const NewsList = ({ express, referenceTime }: NewsCardProps) => {
                 width={item.main_image?.width ?? 640}
                 height={item.main_image?.height ?? 360}
                 sizes="(max-width: 768px) calc(100vw - 74px), 640px"
-                priority={index === 0}
+                priority={index < 2}
               />
             </div>
           </div>
