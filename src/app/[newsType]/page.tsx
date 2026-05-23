@@ -1,7 +1,7 @@
 export const revalidate = 60;
 
 import { News, ExpressResponse } from "@/models/express";
-import NewsPage from "@/pages/news-page/NewsPage";
+import NewsPage from "@/components/news/NewsPage";
 import { getExpress } from "@/services/express";
 
 const filterExpressDataByType = (
