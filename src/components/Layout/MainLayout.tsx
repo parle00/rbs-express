@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import Header from "../header/Header";
-import mainLayoutStyle from "./MainLayout.module.css";
 
 import { SideEnums } from "@/models/enums";
 import MainLayoutSide from "./MainLayoutSide";
@@ -14,10 +13,10 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     <React.Fragment>
       <Header />
       <main className="w-full flex flex-col items-center">
-        <div className={`container ${mainLayoutStyle.mainLayoutContainer}`}>
+        <div className="container main-layout-container">
           <MainLayoutSide sideType={SideEnums.LEFT} />
           <div
-            className={`${mainLayoutStyle.mainLayoutContentContainer} border-r-[0px] border-l-[0px] border-gray-800 md:border-l-[1px] md:border-r-[1px]`}
+            className="main-layout-content border-r-[0px] border-l-[0px] border-gray-800 md:border-l-[1px] md:border-r-[1px]"
           >
             {children}
           </div>

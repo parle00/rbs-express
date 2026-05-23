@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import MainLayout from "@/components/Layout/MainLayout";
+import { criticalStyles } from "./critical-styles";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rbsexpress.netlify.app"),
@@ -19,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr-TR">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />
+      </head>
       <body className="antialiased">
         <MainLayout>{children}</MainLayout>
       </body>

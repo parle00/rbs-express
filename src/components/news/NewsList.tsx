@@ -3,16 +3,22 @@ import { ExpressResponse, Filter, News } from "@/models/express";
 import Image from "next/image";
 import { useState } from "react";
 import { getDateDiff } from "@/utils/helpers";
+import { INITIAL_ITEM_COUNT } from "@/utils/constants";
 import NewsText from "./NewsText";
 
 interface NewsCardProps {
   express: ExpressResponse;
   referenceTime: number;
+  hasMoreItems: boolean;
+  onLoadMore: () => Promise<void>;
 }
 
-const INITIAL_ITEM_COUNT = 10;
-
-const NewsList = ({ express, referenceTime }: NewsCardProps) => {
+const NewsList = ({
+  express,
+  referenceTime,
+  hasMoreItems,
+  onLoadMore,
+}: NewsCardProps) => {
   const [visibleItemCount, setVisibleItemCount] = useState(INITIAL_ITEM_COUNT);
   const visibleItems = express?.items?.slice(0, visibleItemCount);
 
@@ -68,11 +74,15 @@ const NewsList = ({ express, referenceTime }: NewsCardProps) => {
           </div>
         );
       })}
-      {express.items.length > visibleItemCount && (
+      {(hasMoreItems || express.items.length > visibleItemCount) && (
         <button
           type="button"
           className="self-center rounded-[8px] border border-gray-700 px-[20px] py-[10px]"
-          onClick={() => {
+          onClick={async () => {
+            if (hasMoreItems) {
+              await onLoadMore();
+            }
+
             setVisibleItemCount((currentCount) => currentCount + 10);
           }}
         >

@@ -1,7 +1,6 @@
 "use client";
 import { Filter } from "@/models/express";
 import Link from "next/link";
-import mainLayoutLeftSideStyle from "./MainLayout.module.css";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
@@ -16,9 +15,9 @@ const MainLayoutLeftSideClient = ({
 
   return (
     <ul
-      className={`${mainLayoutLeftSideStyle.mainLayoutLeftSideContent} sticky top-[5px]`}
+      className="main-layout-links sticky top-[5px]"
     >
-      <li className={pathname === "/" ? mainLayoutLeftSideStyle.active : ""}>
+      <li className={pathname === "/" ? "main-layout-active" : ""}>
         <Link href="/" title="Akış">
           Akış
         </Link>
@@ -30,7 +29,7 @@ const MainLayoutLeftSideClient = ({
             className={`${
               pathname !== "/"
                 ? pathname?.includes(filterItem.timeline_category as string)
-                  ? mainLayoutLeftSideStyle.active
+                  ? "main-layout-active"
                   : ""
                 : ""
             }`}

@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { IoClose } from "react-icons/io5";
 
-import drawerStyle from "./Drawer.module.css";
-
 interface DrawerProps {
   open: boolean;
   onClose: () => void;
@@ -37,8 +35,8 @@ const Drawer = ({ open, onClose, filterData }: DrawerProps) => {
         </div>
         <div className="w-full h-[1px] bg-gray-800 my-[20px]" />
         <div className="pl-[15px]">
-          <ul className={`${drawerStyle.drawerContent} gap-[15px]`}>
-            <li className={pathname === "/" ? drawerStyle.active : ""}>
+          <ul className="drawer-content gap-[15px]">
+            <li className={pathname === "/" ? "drawer-active" : ""}>
               <Link onClick={onClose} href="/" title="Akış">
                 Akış
               </Link>
@@ -52,7 +50,7 @@ const Drawer = ({ open, onClose, filterData }: DrawerProps) => {
                       ? pathname?.includes(
                           filterItem.timeline_category as string
                         )
-                        ? drawerStyle.active
+                        ? "drawer-active"
                         : ""
                       : ""
                   }`}

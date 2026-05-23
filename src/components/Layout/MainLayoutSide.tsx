@@ -1,5 +1,4 @@
 import React from "react";
-import mainLayoutSideStyle from "./MainLayout.module.css";
 import { SideEnums } from "@/models/enums";
 import { Filter } from "@/models/express";
 import { getExpress } from "@/services/express";
@@ -27,14 +26,14 @@ const MainLayoutSide = async ({ sideType }: MainLayoutSideProps) => {
     }
 
     return (
-      <nav className={`${mainLayoutSideStyle.mainLayoutContentSide} mt-5`}>
+      <nav className="main-layout-side mt-5">
         <MainLayoutLeftSideClient filterData={filterData} />
       </nav>
     );
   }
 
   if (sideType === SideEnums.RIGHT) {
-    return <nav className={mainLayoutSideStyle.mainLayoutContentSide}></nav>;
+    return <nav className="main-layout-side"></nav>;
   }
 
   return null;

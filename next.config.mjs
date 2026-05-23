@@ -1,3 +1,5 @@
+import path from "node:path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
@@ -16,6 +18,18 @@ const nextConfig = {
         pathname: "/rosetta/**",
       },
     ],
+  },
+  webpack: (config, { isServer, webpack }) => {
+    if (!isServer) {
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /[\\/]build[\\/]polyfills[\\/]polyfill-module$/,
+          path.resolve("./src/utils/empty-polyfills.js"),
+        ),
+      );
+    }
+
+    return config;
   },
 };
 

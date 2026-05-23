@@ -5,6 +5,7 @@ import { cache } from "react";
 import { News, ExpressResponse, Filter } from "@/models/express";
 import NewsPage from "@/components/news/NewsPage";
 import { getExpress } from "@/services/express";
+import { INITIAL_ITEM_COUNT } from "@/utils/constants";
 
 const filterExpressDataByType = (
   data: ExpressResponse,
@@ -57,12 +58,17 @@ const Page = async ({ params }: { params: { newsType: string } }) => {
     responseData,
     params.newsType,
   );
+  const initialExpressData = {
+    ...expressData,
+    items: expressData.items.slice(0, INITIAL_ITEM_COUNT),
+  };
 
   return (
     <NewsPage
-      expressData={expressData}
+      expressData={initialExpressData}
       newsType={params.newsType}
       initialReferenceTime={Date.now()}
+      initialHasMoreItems={expressData.items.length > INITIAL_ITEM_COUNT}
     />
   );
 };

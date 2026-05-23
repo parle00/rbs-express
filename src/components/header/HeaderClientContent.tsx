@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import headerStyles from "./header.module.css";
 import { RiMenu3Fill } from "react-icons/ri";
 import { BsToggleOn } from "react-icons/bs";
 import { BsToggleOff } from "react-icons/bs";
@@ -18,7 +17,7 @@ const HeaderClientContent = ({ filterData }: { filterData: Filter[] }) => {
     <>
       <header className="w-full flex flex-col justify-center items-center border-b-[1px] border-gray-800 bg-[#171717] sticky top-0 md:relative">
         <div
-          className={`container-with-padding ${headerStyles.headerContainer} `}
+          className="container-with-padding header-container"
         >
           <div>
             <Drawer
